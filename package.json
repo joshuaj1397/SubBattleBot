@@ -1,0 +1,23 @@
+{
+  "name": "subbattlebot",
+  "version": "1.0.0",
+  "description": "A Discord bot for organizing chess sub battles based on elo and sub status",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "bot",
+    "discord",
+    "twitch",
+    "sub",
+    "chess"
+  ],
+  "author": "Joshua Johnson <joshuaj1397@gmail.com> (https://github.com/joshuaj1397)",
+  "license": "MIT",
+  "dependencies": {
+    "chess-web-api": "^1.0.9",
+    "discord.js": "^12.2.0",
+    "mongodb": "^3.5.9"
+  }
+}
