@@ -51,7 +51,8 @@ module.exports = {
                 guildId: message.guild.id,
                 channelId: message.channel.id,
             });
-            if (subBattlePool.members.some(member => member.username === chessUsername || member.discordUserId === message.author.id)) {
+            // If theres no one in the pool or the user hasn't entered via chess.com username or discord add them to the pool
+            if (subBattlePool.members && subBattlePool.members.some(member => member.username === chessUsername || member.discordUserId === message.author.id)) {
                 console.log('You are already in the SubBattle pool');
                 res = 'You are already in the SubBattle pool';
             } else {

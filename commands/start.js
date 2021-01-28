@@ -19,7 +19,6 @@ module.exports = {
                 await collection.insertOne({
                     guildId: message.guild.id,
                     channelId: message.channel.id,
-                    opponent: args[0], // Optional opponent pool Id
                     creator: message.member.id,
                 });
                 console.log('Your SubBattle ID is ' + poolId);

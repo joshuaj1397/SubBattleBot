@@ -14,7 +14,7 @@ module.exports = {
                 guildId: message.guild.id,
                 channelId: message.channel.id,
             });
-            if (!subBattlePool.members.some(member => member.username === chessUsername || member.discordUserId === message.author.id)) {
+            if (!subBattlePool.members || !subBattlePool.members.some(member => member.username === chessUsername || member.discordUserId === message.author.id)) {
                 console.log('That user is not in the SubBattle pool');
                 res = 'That user is not in the SubBattle pool';
             } else {

@@ -8,12 +8,15 @@ module.exports = {
         // TODO: Check if user has permissions
         try {
             const collection = mongoClient.db('SubBattle').collection('Pools');
-            await collection.findOneAndDelete({
+            const subBattlePool = await collection.findOne({
                 guildId: message.guild.id,
                 channelId: message.channel.id,
             });
-            console.log('The SubBattle has ended thanks for joining!');
-            res = 'The SubBattle has ended thanks for joining!';
+            const res = subBattlePool ? 'The SubBattle has ended thanks for joining!' : 'There is no active SubBattle.';
+            if (subBattlePool) {
+                await collection.delete(subBattlePool);
+            }
+            console.log(res);
         } catch (err) {
             console.log('Failed in db updates ' + err);
             res = 'There was a database error, contact @Blind#6910';
