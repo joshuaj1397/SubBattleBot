@@ -19,18 +19,20 @@ module.exports = {
                 guildId: message.guild.id,
                 channelId: message.channel.id,
             });
+            poolId = doc._id.toString();
             if (doc == null) {
-                await collection.insertOne({
+                doc = await collection.insertOne({
                     guildId: message.guild.id,
                     channelId: message.channel.id,
                     creator: message.member.id,
                     opponent: opponent
                 });
+                poolId = doc._id.toString();
                 console.log('Your SubBattle ID is ' + poolId);
                 res = 'Your SubBattle ID is ' + poolId;
             } else {
                 console.log('A Sub Battle pool already exists for this channel and server');
-                res = 'A Sub Battle pool already exists for this channel and server';
+                res = 'A Sub Battle pool (' + poolId + ') already exists for this channel and server';
             }
         } catch (err) {
             console.log('Failed in db updates ' + err);
