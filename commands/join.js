@@ -6,8 +6,7 @@
 module.exports = {
     name: 'join',
     description: 'Join a sub battle pool',
-    async execute(message, args, mongoClient, chessAPI) {
-        // TODO: Check if user has permissions
+    async execute(message, args, mongoClient, chessAPI) {        
         const chessUsername = args[0];
         if (!chessUsername) {
             console.log('Enter a chess.com username');
@@ -29,7 +28,7 @@ module.exports = {
                     return 'Chess user not found';
                 default:
                     console.log('Chess API Error ' + err);
-                    break;
+                    return 'Chess API is broken :(';
             }
         }
         if (playerStats.chess_blitz) {

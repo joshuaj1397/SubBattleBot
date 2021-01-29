@@ -13,23 +13,29 @@ Output: Your SubBattle ID
 
 ## Commands
 
-Create a sub battle pool
+Create a SubBattle pool
 > !start
 > !start {opponent SubBattleID}
 
-Join a sub battle pool
+Challenge a SubBattle pool
+> !challenge {opponent SubBattleID}
+
+Join a SubBattle pool
 > !join {Chess.com username}
 
+Authorize a role to make changes to the SubBattle
+> !auth {Discord role name}
+
 TODO
-Remove a player from the sub battle pool
+Remove a player from the SubBattle pool
 > !remove {Chess.com username} 
 
-Leave a sub battle pool
+Leave a SubBattle pool
 > !leave
 
 TODO
-View a sub battle matches
+View a SubBattle matches
 > !view
 
-Terminate a sub battle pool
+Terminate a SubBattle pool
 > !end

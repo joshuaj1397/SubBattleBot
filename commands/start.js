@@ -6,9 +6,13 @@ module.exports = {
     name: 'start',
     description: 'Create a sub battle pool',
     async execute(message, args, mongoClient) {
-        // TODO: Check if user has permissions
+        if (!message.member.hasPermission("MANAGE_MESSAGES")) {
+            console.log('You don\'t have permission to use that');
+            return 'You don\'t have permission to use that';
+        }
         let poolId = "";
         let res = "";
+        let opponent = args[0] ? args[0] : null;
         try {
             const collection = mongoClient.db('SubBattle').collection('Pools');
             let doc = await collection.findOne({
@@ -20,6 +24,7 @@ module.exports = {
                     guildId: message.guild.id,
                     channelId: message.channel.id,
                     creator: message.member.id,
+                    opponent: opponent
                 });
                 console.log('Your SubBattle ID is ' + poolId);
                 res = 'Your SubBattle ID is ' + poolId;

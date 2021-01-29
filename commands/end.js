@@ -5,7 +5,10 @@ module.exports = {
     name: 'end',
     description: 'Terminate a sub battle pool',
     async execute(message, args, mongoClient) {
-        // TODO: Check if user has permissions
+        if (!message.member.hasPermission("MANAGE_MESSAGES")) {
+            console.log('You don\'t have permission to use that');
+            return 'You don\'t have permission to use that';
+        }
         try {
             const collection = mongoClient.db('SubBattle').collection('Pools');
             const subBattlePool = await collection.findOne({
